@@ -207,8 +207,7 @@ function editItem() {
             input.classList.add("pl-2");
             input.classList.add("text-xl");
             input.classList.add("replacedInput");
-            input.classList.add("replacedInput-dark");
-
+            
             input.id = "InfoNameValue";
             input.autocomplete = "off";
 
@@ -228,7 +227,6 @@ function editItem() {
             input.classList.add("pl-2");
             input.classList.add("text-xl");
             input.classList.add("replacedInput");
-            input.classList.add("replacedInput-dark");
 
             input.id = "InfoChanceValue";
             input.autocomplete = "off";
@@ -249,7 +247,6 @@ function editItem() {
             input.classList.add("pl-2");
             input.classList.add("text-xl");
             input.classList.add("replacedInput");
-            input.classList.add("replacedInput-dark");
 
             input.id = "InfoRollsValue";
             input.autocomplete = "off";
@@ -270,7 +267,6 @@ function editItem() {
             input.classList.add("pl-2");
             input.classList.add("text-xl");
             input.classList.add("replacedInput");
-            input.classList.add("replacedInput-dark");
 
             input.id = "InfoMinValue";
             input.autocomplete = "off";
@@ -291,7 +287,6 @@ function editItem() {
             input.classList.add("pl-2");
             input.classList.add("text-xl");
             input.classList.add("replacedInput");
-            input.classList.add("replacedInput-dark");
 
             input.id = "InfoMaxValue";
             input.autocomplete = "off";
@@ -404,7 +399,7 @@ function InputturnIntoP() {
 
             paragraph.classList.add("pl-2");
             paragraph.classList.add("text-xl");
-            paragraph.classList.add("valueitem-dark");
+            paragraph.classList.add("valueitem");
 
             paragraph.id = "InfoNameValue";
             
@@ -418,7 +413,7 @@ function InputturnIntoP() {
 
             paragraph.classList.add("pl-2");
             paragraph.classList.add("text-xl");
-            paragraph.classList.add("valueitem-dark");
+            paragraph.classList.add("valueitem");
 
             paragraph.id = "InfoChanceValue";
 
@@ -432,7 +427,7 @@ function InputturnIntoP() {
 
             paragraph.classList.add("pl-2");
             paragraph.classList.add("text-xl");
-            paragraph.classList.add("valueitem-dark");
+            paragraph.classList.add("valueitem");
 
             paragraph.id = "InfoRollsValue";
 
@@ -446,7 +441,7 @@ function InputturnIntoP() {
 
             paragraph.classList.add("pl-2");
             paragraph.classList.add("text-xl");
-            paragraph.classList.add("valueitem-dark");
+            paragraph.classList.add("valueitem");
 
             paragraph.id = "InfoMinValue";
 
@@ -460,7 +455,7 @@ function InputturnIntoP() {
 
             paragraph.classList.add("pl-2");
             paragraph.classList.add("text-xl");
-            paragraph.classList.add("valueitem-dark");
+            paragraph.classList.add("valueitem");
 
             paragraph.id = "InfoMaxValue";
 
