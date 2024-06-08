@@ -94,9 +94,6 @@ body {
 }
 
 .footercontainer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     margin: 16px;
 }
 
