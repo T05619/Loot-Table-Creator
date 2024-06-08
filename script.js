@@ -4,7 +4,7 @@ console.clear()
 
 function generateSnippet(name) {
     var template = `
-        <div class="flex justify-between items-center p-2 border-b border-black" id=${name + "_item"}>
+        <div class="flex justify-between items-center p-2 border-b" id=${name + "_item"}>
             <p class="text-xl">${name}</p>
             <div>
                 <button class="text-lg items-center" id="${name + "_bb"}" onclick='openInfo("${name}")'>
