@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Loot Table Maker</title>
+</head>
+<body>
+    <body class="flex flex-col items-center min-h-screen body" id="bodyTag">
+        <h1 class="text-3xl my-1 font-bold sm:text-4xl sm:my-3 2xl:text-5xl">Loot Table Maker</h1>
+        <p class="text-center  text-lg my-0 mb-3 w-5/6 sm:w-4/5  sm:my-1 sm:mb-3 sm:text-xl 2xl:text-2xl">Welcome to my Minecraft Loot Table Maker! Easily add items to your loot table with just a few clicks. Input the item name, chance, rolls, minimum, and maximum values, then generate your customized loot table.</p>
+        <h2 class="text-xl my-1 sm:text-2xl sm:my-3 2xl:text-2xl font-semibold">Creator</h2>
+        <!-- FIX THE INPUT SCALES-->
+        <div class="w-full space-y-2">
+            <div class="flex customml">
+                <div class="flex justify-center space-x-2 w-3/4 md:w-1/3 ml-auto mr-2">
+                    <div class="flex items-center w-full">
+                        <input type="text" placeholder="Item id" class="inputfieldcolour borderforinputs borderforinputs flex-1 w-full text-xl px-1" autocomplete="off" id="ItemNameInput">
+                        <datalist id="itemSuggestions">
+                            <!-- Suggestions will be dynamically added here -->
+                        </datalist>
+                    </div>
+                </div>
+                <button class="text-xl iconbutton iconbutton mr-auto" onclick="NHelp()">?</button>
+            </div>
+        
+            <div class="flex customml">
+                <div class="flex justify-center space-x-2 w-3/4 md:w-1/3 ml-auto mr-2">
+                    <div class="flex items-center w-full">
+                        <input type="text" placeholder="Chance" class="inputfieldcolour borderforinputs borderforinputs flex-1 w-1/2 text-xl px-1" autocomplete="off" id="ChanceInput">
+                    </div>
+                    <div class="flex items-center w-full">
+                        <input type="text" placeholder="Rolls" class="inputfieldcolour borderforinputs borderforinputs flex-1 w-1/2 text-xl px-1" autocomplete="off" id="RollsInput">
+                    </div>
+                </div>
+                <button class="text-xl iconbutton iconbutton mr-auto" onclick="CRHelp()">?</button>
+            </div>
+        
+            <div class="flex customml">
+                <div class="flex justify-center space-x-2 w-3/4 md:w-1/3 ml-auto mr-2">
+                    <div class="flex items-center w-full">
+                        <input type="text" placeholder="Min" class="inputfieldcolour borderforinputs borderforinputs flex-1 w-1/2 text-xl px-1" autocomplete="off" id="MinInput">
+                    </div>
+                    <div class="flex items-center w-full">
+                        <input type="text" placeholder="Max" class="inputfieldcolour borderforinputs borderforinputs flex-1 w-1/2 text-xl px-1" autocomplete="off" id="MaxInput">
+                    </div>
+                </div>
+                <button class="text-xl iconbutton iconbutton mr-auto" onclick="MMHelp()">?</button>
+            </div>
+        </div>
+        <!-- FIX THE INPUT SCALES -->
+        <button class="text-xl mt-3 p-3 downloadbutton downloadbutton" onclick="addItem()">Add Item</button>
+        <p class="mt-2 mx-1 text-center ErrorMessage hidden" id="ErrorMessage">ERROR: You can't ...</p>
+        <p class="text-center  text-lg my-0 mt-3 w-5/6 sm:w-4/5  sm:my-1 sm:mt-3 sm:text-xl 2xl:text-2xl font-semibold">Current Items:</p>
+        <div class="max-h-60 overflow-y-auto w-5/6 md:w-3/6 text-center mb-3" id="ListOfItems">
+            <!-- Items will be added here :) -->
+        </div>
+        <p class="my-2 text-center text-lg md:text-xl" id="noItemsInListText">No items currently in the loot table</p>
+        <div class="centered-div centered-div w-11/12 sm:w-3/5 lg:w-2/5 hidden" id="InfoPanel">
+            <div class="item-info mb-3">
+                <p class="mb-4 text-3xl font-bold">Item Info</p>
+                <p class="text-sm mb-1">Name</p>
+                <p class="valueitem pl-2 text-xl" id="InfoNameValue" data-value="none">value</p>
+            </div>
+            <div class="input-group">
+                <div class="mr-2">
+                    <p class="text-sm mb-1">Chance</p>
+                    <p class="valueitem pl-2 text-xl" id="InfoChanceValue" data-value="none">value</p>
+                </div>
+                <div class="ml-2">
+                    <p class="text-sm mb-1">Rolls</p>
+                    <p class="valueitem pl-2 text-xl" id="InfoRollsValue" data-value="none">value</p>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="mr-2">
+                    <p class="text-sm mb-1">Min</p>
+                    <p class="valueitem pl-2 text-xl" id="InfoMinValue" data-value="none">value</p>
+                </div>
+                <div class="ml-2">
+                    <p class="text-sm mb-1">Max</p>
+                    <p class="valueitem pl-2 text-xl" id="InfoMaxValue" data-value="none">value</p>
+                </div>
+            </div>
+            <p class="mt-2 text-center ErrorMessage hidden" id="ErrorMessageEdit">ERROR: You can't...</p>
+            <div class="buttons">
+                <button class="iconbutton iconbutton" onclick="editItem()" id="pencil-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                    </svg>                      
+                </button>
+                <button class="iconbutton iconbutton hidden" onclick="saveEdit()" id="check-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>                      
+                </button>
+                <button class="iconbutton iconbutton" onclick="closeInfo()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>                      
+                </button>
+            </div>
+        </div>
+        <div class="centered-div centered-div w-11/12 sm:w-3/5 lg:w-2/5 hidden" id="helpPanel">
+            <p class="mb-2 text-3xl font-bold">Info</p>
+            <div class="hidden" id="NameHelpInfo">
+                <p class="mb-1 text-2xl">Name</p>
+                <p class="md:text-lg">The name you enter should be the id of the item you want to add to the loot table. You can find an item/blocks ID ingame using F3 + H or by searching it online on a website like: <a href="https://minecraft.wiki/w/Java_Edition_data_values" class="underline">Minecraft Wiki</a>.  E.g. "oak_log"</p>
+            </div>
+            <div class="hidden" id="CRHelpInfo">
+                <p class="mb-1 text-2xl">Chance</p>
+                <p class="mb-2 md:text-lg">The chance you enter will controll the chance of it appearing in each slot. It will range from 0.001 and 1. E.g. 0.5 is 50% chance</p>
+                <p class="mb-1 text-2xl">Rolls</p>
+                <p class="md:text-lg">The amount of rolls is how many times it will roll the "dice" to see if it is the chance range then if it is it will put the item in the slot. This may cause more than your max value to be in one slot. It should be a whole number above 1. E.g. 2</p>
+            </div>
+            <div class="hidden" id="MMHelpInfo">
+                <p class="mb-2 md:text-lg">The number of items will be a random number between your min and max &#40;If you want it to be a specific number put the same number in both boxes&#41;</p>
+                <p class="mb-1 text-2xl">Min</p>
+                <p class="mb-2 md:text-lg">The minimum that you enter will be the lowest number of that item in a slot if the item is in the slot</p>
+                <p class="mb-1 text-2xl">Max</p>
+                <p class="md:text-lg">The maximum that you enter will be the top number of that item in a slot if the item is in the slot</p>
+            </div>
+            <div class="buttons">
+                <button onclick="closeHelp()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="w-4/6 text-center mt-2">
+            <input type="text" placeholder="Loot Table Name" autocomplete="off" class="text-xl w-11/12 sm:w-5/6 md:w-2/6 px-1 inputfieldcolour borderforinputs borderforinputs text-center" id="LootTableName">
+        </div>
+        <button class="text-2xl m-3 p-2 downloadbutton downloadbutton" onclick="downloadOutput()">Download</button>
+        <p class="mt-2 text-center ErrorMessage hidden" id="ErrorMessageDownload">ERROR: You must have a name for the loot table</p>
+        <p class="mt-2 text-center ErrorMessage hidden" id="ErrorMessageDownloadNoItems">ERROR: You must have at least one item in your loot table</p>
+    </body>
+    <footer class="text-xl footercontainer">Made by <a href="https://github.com/T05619" class="linkToGithub">T05619</a></footer>
+</body>
+</html>

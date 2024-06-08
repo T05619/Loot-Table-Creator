@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+.body {
+    background-color: #1b1e20;
+    color: white;
+}
+
+.inputfieldcolour {
+    background-color: #1b1e20;
+}
+
+.downloadbutton {
+    color: white;
+    background-color: #1b1e20;
+    box-shadow: #31322d 10px 10px 10px;
+    border-color: white;
+}
+
+.downloadbutton:hover {
+    box-shadow: #31322d 0px 0px 0px;
+}
+
+.borderforinputs {
+    border-color: #bebebe !important;
+}
+
+.borderforinputs:focus {
+    border-color: #ffffff !important;
+}
+
+.iconbutton:hover {
+    color: gray;
+}
+
+.centered-div {
+    border: 3px solid #b4b4b4;
+    background: #1b1e20;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.valueitem {
+    background-color: #1b1e20;
+    border: solid #bebebe 3px;
+}
+
+.replacedInput {
+    background-color: #1b1e20;
+    border-color: #bebebe !important;
+}
+
+.replacedInput:focus {
+    border-color: #ffffff !important;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.linkToGithub:hover {
+    color: #b4b4b4;
+}
+
+.downloadbutton {
+    transition: all 0.3s ease;
+    border: solid 3px;
+}
+
+.borderforinputs {
+    border: solid 3px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.iconbutton:hover {
+    transition: 0.2s;
+}
+
+.centered-div {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+
+.replacedInput {
+    border: solid 3px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.customml {
+    margin-left: 1.125rem;
+}
+
+.footercontainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 16px;
+}
+
+.linkToGithub {
+    transition: all 0.3s ease;
+}
+
+.centered-div .buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.centered-div .buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.centered-div .input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.centered-div .input-group > div {
+    flex: 1;
+}
+
+.centered-div .input-group p:first-child {
+    text-align: left;
+}
+
+.centered-div .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.iconfixheight {
+    margin-bottom: -11px;
+}
+
+.ErrorMessage {
+    color: red;
+}
