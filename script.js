@@ -25,16 +25,19 @@ function generateSnippet(name) {
 }
 
 function NHelp() {
+    closeHelp()
     document.getElementById("NameHelpInfo").classList.remove("hidden");
     document.getElementById("helpPanel").classList.remove("hidden");
 };
 
 function CRHelp() {
+    closeHelp()
     document.getElementById("CRHelpInfo").classList.remove("hidden");
     document.getElementById("helpPanel").classList.remove("hidden");
 };
 
 function MMHelp() {
+    closeHelp()
     document.getElementById("MMHelpInfo").classList.remove("hidden");
     document.getElementById("helpPanel").classList.remove("hidden");
 };
