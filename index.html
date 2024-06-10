@@ -13,15 +13,11 @@
         <h1 class="text-3xl my-1 font-bold sm:text-4xl sm:my-3 2xl:text-5xl">Loot Table Maker</h1>
         <p class="text-center  text-lg my-0 mb-3 w-5/6 sm:w-4/5  sm:my-1 sm:mb-3 sm:text-xl 2xl:text-2xl">Welcome to my Minecraft Loot Table Maker! Easily add items to your loot table with just a few clicks. Input the item name, chance, rolls, minimum, and maximum values, then generate your customized loot table.</p>
         <h2 class="text-xl my-1 sm:text-2xl sm:my-3 2xl:text-2xl font-semibold">Creator</h2>
-        <!-- FIX THE INPUT SCALES-->
         <div class="w-full space-y-2">
             <div class="flex customml">
                 <div class="flex justify-center space-x-2 w-3/4 md:w-1/3 ml-auto mr-2">
                     <div class="flex items-center w-full">
                         <input type="text" placeholder="Item id" class="inputfieldcolour borderforinputs borderforinputs flex-1 w-full text-xl px-1" autocomplete="off" id="ItemNameInput">
-                        <datalist id="itemSuggestions">
-                            <!-- Suggestions will be dynamically added here -->
-                        </datalist>
                     </div>
                 </div>
                 <button class="text-xl iconbutton iconbutton mr-auto" onclick="NHelp()">?</button>
@@ -51,7 +47,6 @@
                 <button class="text-xl iconbutton iconbutton mr-auto" onclick="MMHelp()">?</button>
             </div>
         </div>
-        <!-- FIX THE INPUT SCALES -->
         <button class="text-xl mt-3 p-3 downloadbutton downloadbutton" onclick="addItem()">Add Item</button>
         <p class="mt-2 mx-1 text-center ErrorMessage hidden" id="ErrorMessage">ERROR: You can't ...</p>
         <p class="text-center  text-lg my-0 mt-3 w-5/6 sm:w-4/5  sm:my-1 sm:mt-3 sm:text-xl 2xl:text-2xl font-semibold">Current Items:</p>
